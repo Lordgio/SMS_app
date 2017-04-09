@@ -45,5 +45,6 @@ public class MensajeActivity extends AppCompatActivity {
         SmsManager manager=SmsManager.getDefault();
         manager.sendTextMessage(edtNum.getText().toString(),telf,edtMens.getText().toString(),null,null);
         Toast.makeText(this,"Mensaje enviado",Toast.LENGTH_LONG).show();
+        this.finish();
     }
 }

@@ -30,18 +30,14 @@ public class ListadoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         gpers=new GestionPermisos(this,this);
-        if(gpers.comprobarPermisoSMS()!=true){
+        if(!gpers.comprobarPermisoSMS()){
             gpers.pedirPermisoSMS();
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado);
         gmens=new GestionMensajes(this,"mensajes");
         lst=(ListView)this.findViewById(R.id.lstMensajes);
-        final SimpleCursorAdapter adapter=new SimpleCursorAdapter(this,R.layout.fila,gmens.mostrarDatosCursor(),
-                                                            new String[]{"origen","mensaje"},
-                                                            new int[]{R.id.tvOrigen,R.id.tvMensaje},
-                                                            CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-        lst.setAdapter(adapter);
+        cargarLista();
         lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -54,6 +50,7 @@ public class ListadoActivity extends AppCompatActivity {
         });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setVisibility(View.INVISIBLE);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +85,11 @@ public class ListadoActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void guardarMensaje(Mensaje m){
-        gmens.guardarMensaje(m);
+    public void cargarLista(){
+        final SimpleCursorAdapter adapter=new SimpleCursorAdapter(this,R.layout.fila,gmens.mostrarDatosCursor(),
+                new String[]{"origen","mensaje"},
+                new int[]{R.id.tvOrigen,R.id.tvMensaje},
+                CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        lst.setAdapter(adapter);
     }
 }

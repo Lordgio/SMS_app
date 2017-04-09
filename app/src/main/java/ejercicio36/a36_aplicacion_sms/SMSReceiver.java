@@ -28,6 +28,8 @@ public class SMSReceiver extends BroadcastReceiver {
         Mensaje m=new Mensaje(origen,texto);
         GestionMensajes gmens=new GestionMensajes(context,"mensajes");
         gmens.guardarMensaje(m);
+        ListadoActivity lstAct=new ListadoActivity();
+        lstAct.cargarLista();
 
         Toast.makeText(context,origen+": "+texto,Toast.LENGTH_LONG).show();
     }
