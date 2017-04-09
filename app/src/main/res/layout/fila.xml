@@ -18,7 +18,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:paddingLeft="16dp"
+            android:paddingLeft="0dp"
+            android:paddingTop="15dp"
             app:srcCompat="@drawable/ic_mail_outline_black_24dp" />
     </LinearLayout>
 
@@ -35,8 +36,10 @@
             android:layout_height="36dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:paddingLeft="8dp"
-            android:paddingRight="16dp" />
+            android:paddingLeft="72dp"
+            android:paddingRight="16dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvMensaje"
@@ -44,7 +47,8 @@
             android:layout_height="36dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:paddingLeft="8dp"
-            android:paddingRight="16dp" />
+            android:paddingLeft="72dp"
+            android:paddingRight="16dp"
+            android:textSize="16sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

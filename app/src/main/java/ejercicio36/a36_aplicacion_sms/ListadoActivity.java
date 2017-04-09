@@ -50,7 +50,7 @@ public class ListadoActivity extends AppCompatActivity {
         });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setVisibility(View.INVISIBLE);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,7 @@ public class ListadoActivity extends AppCompatActivity {
         });
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_listado, menu);
@@ -83,7 +83,7 @@ public class ListadoActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     public void cargarLista(){
         final SimpleCursorAdapter adapter=new SimpleCursorAdapter(this,R.layout.fila,gmens.mostrarDatosCursor(),
